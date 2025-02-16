@@ -1,5 +1,5 @@
-# articles-laravel
-Articles Laravel
+# article-laravel
+Article Laravel
 
 1. Download the project or clone it.
 2. Copy and paste the file `.env.example` or `.env.example.docker` to `.env`.
