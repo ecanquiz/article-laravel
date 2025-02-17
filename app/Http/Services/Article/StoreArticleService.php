@@ -12,7 +12,7 @@ class StoreArticleService
     {
         $article = new Article;
 
-        $article->int_cod = $request->int_cod;
+        //$article->int_cod = $request->int_cod;
         $article->name = $request->name;
         $article->price = $request->price;
         $article->stock_min = $request->stock_min;
