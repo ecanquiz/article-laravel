@@ -20,7 +20,7 @@ class StoreArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "int_cod" => ["required"],  
+            //"int_cod" => ["required"],  
             "name" => ["required"],  
             "price" => ["required"],  
             "stock_min" => ["required"],  
