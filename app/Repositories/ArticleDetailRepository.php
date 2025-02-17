@@ -21,7 +21,7 @@ class ArticleDetailRepository extends ArticleDetail
             $articleDetails[$key]['category'] = $response['product']['category']['name'];
             $articleDetails[$key]['product'] = $response['product']['name'];
             $articleDetails[$key]['mark'] = $response['product']['mark']['name'];
-            $articleDetails[$key]['packing_deployed'] = $response['packing_deployed']; 
+            $articleDetails[$key]['packing_deployed'] = $response['packing_deployed'];           
             
             /* $response = Presentation::select(
                 DB::raw("* ,presentation_deploy(presentations.id) as packing_deployed")
@@ -34,6 +34,26 @@ class ArticleDetailRepository extends ArticleDetail
         }
 
         return $articleDetails;
+    }
+
+    static public function getDescriptionByArticle(int $articleId)//: Collection
+    {
+        $articleDetails = ArticleDetail::where('article_id', $articleId)->get();
+        $articleDescription = '';
+
+        foreach ($articleDetails as $key => $value) {
+            $response = Http::get("http://localhost:8002/api/" . 'presentations/' . $value['presentation_id'])[0];
+
+            $articleDescription 
+              .= $response['bar_cod']
+              . ', ' . $response['product']['category']['name']
+              . ', ' . $response['product']['name']
+              . ', ' . $response['product']['mark']['name']
+              . ', ' . $response['packing_deployed']
+              . ' | ';
+        }
+
+        return strlen($articleDescription) ? substr($articleDescription, 0, -3) : $articleDescription;
     }
     
 }

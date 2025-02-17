@@ -4,7 +4,9 @@ namespace App\Http\Services\ArticleDetail;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\ArticleDetail;
-use App\Http\Requests\ArticleDetail\StoreArticleDetailRequest;
+use App\Http\Services\Article\UpdateArticleDescriptionService;
+
+//use App\Http\Requests\ArticleDetail\StoreArticleDetailRequest;
 
 class StoreArticleDetailService
 {
@@ -14,8 +16,9 @@ class StoreArticleDetailService
     {
 
         //return response()->json($request[0]);
+        $articleId = intval($request[0]["article_id"]);
 
-        ArticleDetail::where('article_id', intval($request[0]["article_id"]))->forceDelete();
+        ArticleDetail::where('article_id', $articleId )->forceDelete();
 
         foreach ($request->all() as $rqst) {
             $articleDetail = new ArticleDetail();
@@ -25,11 +28,14 @@ class StoreArticleDetailService
             //$articleDetail->status = $rqst["status;
             //$articleDetail->user_insert_id = $rqst["user_insert_id;
             //$articleDetail->user_update_id = $rqst["user_update_id;
-            $articleDetail->save();            
+            $articleDetail->save();
         }
+
+        $articleDescription = UpdateArticleDescriptionService::execute($articleId);
 
         return response()->json([
             'message' => 'Article detail created',
+            'article_description' => $articleDescription,
         ], 201);
     }
 
