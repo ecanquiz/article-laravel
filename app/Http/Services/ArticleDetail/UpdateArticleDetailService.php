@@ -8,7 +8,7 @@ use App\Http\Requests\ArticleDetail\UpdateArticleDetailRequest;
 class UpdateArticleDetailService
 {
   
-    static public function execute(UpdateArticleDetailRequest $request, ArticleDetail $article_detail): JsonResponse
+    /*static public function execute(UpdateArticleDetailRequest $request, ArticleDetail $article_detail): JsonResponse
     {     
         
         $article_detail->article_id = $request->article_id;
@@ -23,6 +23,6 @@ class UpdateArticleDetailService
         return response()->json([
             'message' => 'ArticleDetail updated'            
         ], 200);
-    }
+    }*/
 
 }

@@ -13,6 +13,7 @@ use App\Http\Requests\ArticleDetail\{
     UpdateArticleDetailRequest    
 };
 use App\Http\Services\ArticleDetail\{
+    DeleteArticleDetailService,
     StoreArticleDetailService,
     UpdateArticleDetailService
 }; 
@@ -40,9 +41,9 @@ class ArticleDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateArticleDetailRequest $request, ArticleDetail $article_detail): JsonResponse
+    public function update(UpdateArticleDetailRequest $request, ArticleDetail $article_detail)//: JsonResponse
     {
-        return UpdateArticleDetailService::execute($request, $article_detail);
+        //return UpdateArticleDetailService::execute($request, $article_detail);
     }
 
     /**
@@ -50,8 +51,9 @@ class ArticleDetailController extends Controller
      */
     public function destroy(Request $request): JsonResponse
     {
-        ArticleDetail::destroy($request->id);
 
-        return response()->json(204);            
+        return DeleteArticleDetailService::execute($request);
+
+
     }
 }

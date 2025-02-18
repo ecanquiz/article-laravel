@@ -21,7 +21,8 @@ class CreateArticlesTable extends Migration
             $table->integer('stock_min')->default(5);
             $table->integer('stock_max')->default(5);
             $table->integer('status')->default(1);
-            $table->string('photo')->default('');          
+            $table->string('photo')->default('');
+            $table->text('description')->default('');     
             $table->integer('id_user_insert')->default(1);
             $table->integer('id_user_update')->default(1);
             $table->timestamps();

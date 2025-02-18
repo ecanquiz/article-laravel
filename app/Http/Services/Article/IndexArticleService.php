@@ -38,8 +38,8 @@ class IndexArticleService
         }
 
         /* sort */
-        $sort = $request->input("sort");
-        $direction = $request->input("direction") == "desc" ? "desc" : "asc";
+        $sort = $request->input("sort") ? $request->input("sort") : 'id';
+        $direction = $request->input("direction") == "asc" ? "asc" : "desc";
         if ($sort) {
             $query->orderBy($sort, $direction);
         }

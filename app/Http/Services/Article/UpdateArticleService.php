@@ -5,6 +5,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Models\Article;
+// use App\Repositories\ArticleDetailRepository;
 
 class UpdateArticleService
 {
@@ -20,7 +21,12 @@ class UpdateArticleService
         $article->status = $request->status;
         $article->photo = $request->photo;
         $article->id_user_update = Auth::user()->id;
+
         
+        //$des = ArticleDetailRepository::getDescriptionByArticle($article->id);
+
+        //dd($des);
+
         $article->save();
 
         return response()->json([
