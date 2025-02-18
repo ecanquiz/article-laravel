@@ -5,17 +5,13 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\ArticleDetail;
 use App\Http\Services\Article\UpdateArticleDescriptionService;
-
 //use App\Http\Requests\ArticleDetail\StoreArticleDetailRequest;
 
 class StoreArticleDetailService
-{
-  
+{  
     //static public function execute(StoreArticleDetailRequest $request): JsonResponse
     static public function execute(Request $request): JsonResponse
-    {
-
-        //return response()->json($request[0]);
+    {        
         $articleId = intval($request[0]["article_id"]);
 
         ArticleDetail::where('article_id', $articleId )->forceDelete();
