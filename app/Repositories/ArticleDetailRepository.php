@@ -3,48 +3,35 @@
 namespace App\Repositories;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use App\Models\ArticleDetail;
 
 class ArticleDetailRepository extends ArticleDetail
 {
     
-    static public function getAllByArticle($request)//: Collection
+    static public function getAllByArticle(Request $request)//: Collection
     {
         $articleDescription = '';
         $articleDetails = ArticleDetail::where('article_id', $request->articleId)->get();
 
-
         if($articleDetails->count() > 0) {
-
-            foreach ($articleDetails as $key => $value) {
-                $response = Http::get("http://localhost:8002/api/" . 'presentations/' . $value['presentation_id'] . '/only-one')[0];
+            foreach ($articleDetails as $key => $value) {                
+                $response = Http::get( config('api.url_product') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
     
                 $articleDetails[$key]['bar_cod'] = $response['bar_cod'];
                 $articleDetails[$key]['category'] = $response['product']['category']['name'];
                 $articleDetails[$key]['product'] = $response['product']['name'];
                 $articleDetails[$key]['mark'] = $response['product']['mark']['name'];
-                $articleDetails[$key]['packing_deployed'] = $response['packing_deployed'];
-                
+                $articleDetails[$key]['packing_deployed'] = $response['packing_deployed'];                
                 
                 $articleDescription 
-                .= $response['bar_cod']
-                . ', ' . $response['product']['category']['name']
-                . ', ' . $response['product']['name']
-                . ', ' . $response['product']['mark']['name']
-                . ', ' . $response['packing_deployed']
-                . ', Cantidad: ' . $value['quantity']
-                . ' | ';
-                
-                /* $response = Presentation::select(
-                    DB::raw("* ,presentation_deploy(presentations.id) as packing_deployed")
-                )->find($value['presentation_id']);
-                $articleDetails[$key]['bar_cod'] = $response['bar_cod'];
-                $articleDetails[$key]['category'] = $response['product']['category']['name'];
-                $articleDetails[$key]['product'] = $response['product']['name'];
-                $articleDetails[$key]['mark'] = $response['product']['mark']['name'];
-                $articleDetails[$key]['packing_deployed'] = $response['packing_deployed'];*/
+                    .= $response['bar_cod']
+                    . ', ' . $response['product']['category']['name']
+                    . ', ' . $response['product']['name']
+                    . ', ' . $response['product']['mark']['name']
+                    . ', ' . $response['packing_deployed']
+                    . ', Cantidad: ' . $value['quantity']
+                    . ' | ';
             }
         }
 
@@ -61,7 +48,7 @@ class ArticleDetailRepository extends ArticleDetail
 
         if($articleDetails->count() > 0) {
             foreach ($articleDetails as $key => $value) {
-                $response = Http::get("http://localhost:8002/api/" . 'presentations/' . $value['presentation_id'] . '/only-one')[0];
+                $response = Http::get(config('api.url_product') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
     
                 $articleDescription 
                   .= $response['bar_cod']
