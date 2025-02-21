@@ -16,7 +16,7 @@ class ArticleDetailRepository extends ArticleDetail
 
         if($articleDetails->count() > 0) {
             foreach ($articleDetails as $key => $value) {                
-                $response = Http::get( config('api.url_product') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
+                $response = Http::withToken(config('api.product.shared_token'))->get( config('api.product.url') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
     
                 $articleDetails[$key]['bar_cod'] = $response['bar_cod'];
                 $articleDetails[$key]['category'] = $response['product']['category']['name'];
@@ -48,7 +48,7 @@ class ArticleDetailRepository extends ArticleDetail
 
         if($articleDetails->count() > 0) {
             foreach ($articleDetails as $key => $value) {
-                $response = Http::get(config('api.url_product') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
+                $response = Http::withToken(config('api.product.shared_token'))->get(config('api.product.url') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
     
                 $articleDescription 
                   .= $response['bar_cod']

@@ -1,5 +1,8 @@
 <?php
 
 return [
-    'url_product' => env('API_URL_PRODUCT', 'http://localhost')
+    'product' => [
+        'url' => env('API_PRODUCT_URL', 'http://localhost'),
+        'shared_token' => env('API_PRODUCT_SHARED_TOKEN', 'secret_token')
+    ]
 ];

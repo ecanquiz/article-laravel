@@ -51,30 +51,27 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::put('/{role}', [RoleController::class, 'update']);
         Route::delete('/{id}', [RoleController::class,'destroy']);        
     });
-});
 
-
-Route::get('/articles-search', [ArticleController::class,'search']);
-Route::prefix('articles')->group(function () {
-    Route::get('/', [ArticleController::class, 'index']);
-    Route::get('/{article}', [ArticleController::class, 'show']);
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::prefix('articles')->group(function () {
+        Route::get('/', [ArticleController::class, 'index']);
+        Route::get('/{article}', [ArticleController::class, 'show']);
         Route::post('/', [ArticleController::class, 'store']);
         Route::put('/{article}', [ArticleController::class, 'update']);
         Route::delete('/{id}', [ArticleController::class,'destroy']);
-    });
-});
-Route::get('/articles-help', [ArticleController::class, 'help']);
 
-Route::prefix('article_details')->group(function () {  
-    Route::get('/{articleId}', [ArticleDetailController::class, 'getAllByArticle']);
-    Route::get('/{article_detail}', [ArticleDetailController::class, 'show']);
-    Route::middleware(['auth:sanctum'])->group(function () {
+    });
+    Route::get('/articles-help', [ArticleController::class, 'help']);
+    
+    Route::prefix('article_details')->group(function () {  
+        Route::get('/{articleId}', [ArticleDetailController::class, 'getAllByArticle']);
+        Route::get('/{article_detail}', [ArticleDetailController::class, 'show']);
         Route::post('/', [ArticleDetailController::class, 'store']);
         Route::put('/{article_detail}', [ArticleDetailController::class, 'update']);
         Route::delete('/{id}', [ArticleDetailController::class,'destroy']);
-    });
+    });    
 });
+
+Route::get('/articles-search', [ArticleController::class,'search']);
 
 Route::prefix('error')->group(function () {
     Route::get('/not-auth', function(){        
