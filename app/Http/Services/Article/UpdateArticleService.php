@@ -12,20 +12,10 @@ class UpdateArticleService
     static public function execute(UpdateArticleRequest $request, Article $article): JsonResponse
     {          
         // $article = Article::find($request->id);
-
-        //$article->int_cod = $request->int_cod;
-        $article->name = $request->name;
-        $article->price = $request->price;
-        $article->stock_min = $request->stock_min;
-        $article->stock_max = $request->stock_max;
+        $article->name = $request->name;        
         $article->status = $request->status;
         $article->photo = $request->photo;
-        $article->id_user_update = Auth::user()->id;
-
-        
-        //$des = ArticleDetailRepository::getDescriptionByArticle($article->id);
-
-        //dd($des);
+        $article->id_user_update = Auth::user()->id;        
 
         $article->save();
 
