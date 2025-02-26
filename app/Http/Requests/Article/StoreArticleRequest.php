@@ -22,9 +22,7 @@ class StoreArticleRequest extends FormRequest
         return [
             //"int_cod" => ["required"],  
             "name" => ["required"],  
-            "price" => ["required"],  
-            "stock_min" => ["required"],  
-            "stock_max" => ["required"],  
+            //"name" => ["description"],              
             "status" => ["required"],  
             "photo" => ["required"],  
            // "id_user_insert" => ["required"],  

@@ -24,15 +24,13 @@ class IndexArticleService
         if ($search) {
             $query->where(function ($query) use ($search) {
                 $query
-                ->where(\DB::raw('lower(int_cod)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(name)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(price)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(stock_min)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(stock_max)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(status)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(photo)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(id_user_insert)') , "like", "%$search%")                
-                ->orWhere(\DB::raw('lower(id_user_update)') , "like", "%$search%")                
+                ->where(\DB::raw('lower(int_cod)') , "like", "%$search%")
+                ->orWhere(\DB::raw('lower(name)') , "like", "%$search%")
+                ->orWhere(\DB::raw('lower(description)') , "like", "%$search%")
+                ->orWhere(\DB::raw('lower(status)') , "like", "%$search%")
+                ->orWhere(\DB::raw('lower(photo)') , "like", "%$search%")
+                ->orWhere(\DB::raw('lower(id_user_insert)') , "like", "%$search%")
+                ->orWhere(\DB::raw('lower(id_user_update)') , "like", "%$search%")
                 ;
             });
         }

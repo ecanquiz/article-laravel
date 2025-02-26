@@ -17,8 +17,14 @@ class CreateArticleDetailsTable extends Migration
             $table->id();
             $table->integer('article_id');//bigInteger
             $table->integer('presentation_id');
+            $table->string('bar_cod', 15)->default('N/A');
+            $table->string('category')->default('');
+            $table->string('product')->default('');
+            $table->string('mark')->default('');
+            $table->string('packing_deployed')->default('');            
             $table->integer('quantity')->default(1);            
-            $table->integer('status')->default(1);                                  
+            $table->integer('status')->default(1);
+            $table->string('photo_path')->default('');
             $table->integer('user_insert_id')->default(1);
             $table->integer('user_update_id')->default(1);
             $table->unique(['article_id', 'presentation_id']);
