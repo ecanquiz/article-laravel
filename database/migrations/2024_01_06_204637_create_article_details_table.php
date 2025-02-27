@@ -24,7 +24,7 @@ class CreateArticleDetailsTable extends Migration
             $table->string('packing_deployed')->default('');            
             $table->integer('quantity')->default(1);            
             $table->integer('status')->default(1);
-            $table->string('photo_path')->default('');
+            $table->string('photo_path')->nullable()->default('');
             $table->integer('user_insert_id')->default(1);
             $table->integer('user_update_id')->default(1);
             $table->unique(['article_id', 'presentation_id']);

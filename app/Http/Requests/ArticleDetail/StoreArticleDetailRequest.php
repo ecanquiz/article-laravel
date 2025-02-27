@@ -21,12 +21,18 @@ class StoreArticleDetailRequest extends FormRequest
     public function rules(): Array
     {
         return  [
-            'article_id' => ["required"],           
-            'presentation_id' => ["required"],           
-            'quantity' => ["required"],           
-            'status' => ["required"],           
-            'user_insert_id' => ["required"], 
-            'user_update_id' => ["required"]           
+            'article_id' => ["required"],
+            'presentation_id' => ["required"],
+            'quantity' => ["required"],
+            'bar_cod' => ["required"],
+            'category' => ["required"],
+            'product' => ["required"],
+            'mark' => ["required"],
+            'packing_deployed' => ["required"],
+            //'photo_path',
+            'status' => ["required"],
+            'user_insert_id' => ["required"],
+            'user_update_id' => ["required"]
         ];
     }
 }

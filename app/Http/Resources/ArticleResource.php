@@ -15,10 +15,7 @@ class ArticleResource extends JsonResource
         return [
             'int_cod' => $this->int_cod,
             'name' => $this->name,
-            'description' => $this->description,
-            'price' => $this->price,
-            'stock_min' => $this->stock_min,
-            'stock_max' => $this->stock_max,
+            'description' => $this->description,            
             'status' => $this->status,
             'photo' => $this->photo,
             'id_user_insert' => $this->id_user_insert,

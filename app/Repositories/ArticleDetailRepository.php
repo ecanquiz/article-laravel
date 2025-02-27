@@ -26,10 +26,10 @@ class ArticleDetailRepository extends ArticleDetail
                 // $articleDetails[$key]['photo_path'] = $response['photo_path'];                
                 
                 $articleDescription 
-                    .= $response['bar_cod']
-                    . ', ' . $response['category']
+                    .= ($response['bar_cod'] === 'N/A' ? '' : ($response['bar_cod']) . ', ')
+                    . $response['category']
                     . ', ' . $response['product']
-                    . ', ' . $response['mark']
+                    . ($response['mark'] === 'N/A' ? '' : (', '. $response['mark']))
                     . ', ' . $response['packing_deployed']
                     . ', Cantidad: ' . $value['quantity']
                     . ' | ';
@@ -52,13 +52,13 @@ class ArticleDetailRepository extends ArticleDetail
                 $response = Http::withToken(config('api.product.shared_token'))->get(config('api.product.url') . '/api/presentations/' . $value['presentation_id'] . '/only-one')[0];
     
                 $articleDescription 
-                  .= $response['bar_cod']
-                  . ', ' . $response['category']
-                  . ', ' . $response['product']
-                  . ', ' . $response['mark']
-                  . ', ' . $response['packing_deployed']
-                  . ', Cantidad: ' . $value['quantity']
-                  . ' | ';
+                .= ($response['bar_cod'] === 'N/A' ? '' : ($response['bar_cod']) . ', ')
+                . $response['category']
+                . ', ' . $response['product']
+                . ($response['mark'] === 'N/A' ? '' : (', '. $response['mark']))
+                . ', ' . $response['packing_deployed']
+                . ', Cantidad: ' . $value['quantity']
+                . ' | ';
             }
         }        
 
