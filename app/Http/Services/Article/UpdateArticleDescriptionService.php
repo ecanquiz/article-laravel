@@ -1,10 +1,8 @@
 <?php
 namespace App\Http\Services\Article;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Article\UpdateArticleRequest;
-use App\Models\Article;
+use App\Models\{Article, ArticleDetail};
 use App\Repositories\ArticleDetailRepository;
 
 class UpdateArticleDescriptionService
@@ -13,7 +11,9 @@ class UpdateArticleDescriptionService
     {
         $description = '';
         $article = Article::find($articleId);
-        $description = ArticleDetailRepository::getDescriptionByArticle($article->id);
+        $articleDetails = ArticleDetail::where('article_id', $articleId)->get();
+        $description = ArticleDetailRepository::getDescriptionByArticle($articleDetails);
+
         $article->id_user_update = Auth::user()->id;
         $article->description = $description;
 
@@ -22,4 +22,3 @@ class UpdateArticleDescriptionService
         return $description;      
     }
 }
-
