@@ -5,17 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
-use Illuminate\Database\Eloquent\Collection;
-use App\Models\ArticleDetail;
-use App\Repositories\ArticleDetailRepository;
-use App\Http\Requests\ArticleDetail\{
-    StoreArticleDetailRequest,
-    UpdateArticleDetailRequest    
-};
+// use Illuminate\Database\Eloquent\Collection;
 use App\Http\Services\ArticleDetail\{
+    IndexArticleDetailService,
     DeleteArticleDetailService,
-    StoreArticleDetailService,
-    UpdateArticleDetailService
+    StoreArticleDetailService
 }; 
 
 class ArticleDetailController extends Controller
@@ -23,27 +17,17 @@ class ArticleDetailController extends Controller
     /**
      * Display a listing of the resource by parent.
      */
-    public function getAllByArticle(Request $request)//: Collection
+    public function getAllByArticle(Request $request): array
     {
-        return ArticleDetailRepository::getAllByArticle($request);
+        return IndexArticleDetailService::execute($request);
     }
 
     /**
      * Store a newly created resource in storage.
      */    
-    //public function store(StoreArticleDetailRequest $request): JsonResponse
     public function store(Request $request): JsonResponse
     {
-        //return  response()->json($request, 201);
         return StoreArticleDetailService::execute($request);
-    }
-    
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateArticleDetailRequest $request, ArticleDetail $article_detail)//: JsonResponse
-    {
-        //return UpdateArticleDetailService::execute($request, $article_detail);
     }
 
     /**
@@ -51,9 +35,6 @@ class ArticleDetailController extends Controller
      */
     public function destroy(Request $request): JsonResponse
     {
-
         return DeleteArticleDetailService::execute($request);
-
-
     }
 }

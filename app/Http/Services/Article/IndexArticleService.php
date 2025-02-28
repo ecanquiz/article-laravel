@@ -28,15 +28,12 @@ class IndexArticleService
                 ->orWhere(\DB::raw('lower(name)') , "like", "%$search%")
                 ->orWhere(\DB::raw('lower(description)') , "like", "%$search%")
                 ->orWhere(\DB::raw('lower(status)') , "like", "%$search%")
-                ->orWhere(\DB::raw('lower(photo)') , "like", "%$search%")
-                ->orWhere(\DB::raw('lower(id_user_insert)') , "like", "%$search%")
-                ->orWhere(\DB::raw('lower(id_user_update)') , "like", "%$search%")
                 ;
             });
         }
 
         /* sort */
-        $sort = $request->input("sort") ? $request->input("sort") : 'id';
+        $sort = $request->input("sort") ? $request->input("sort") : 'int_cod';
         $direction = $request->input("direction") == "asc" ? "asc" : "desc";
         if ($sort) {
             $query->orderBy($sort, $direction);

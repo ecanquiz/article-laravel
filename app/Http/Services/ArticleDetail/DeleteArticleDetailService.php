@@ -15,10 +15,11 @@ class DeleteArticleDetailService
         $articleDetail = ArticleDetail::find($request->id);
         $articleId =  $articleDetail->article_id;        
         
-        $articleDetail->delete(); 
+        $articleDetail->delete();
         UpdateArticleDescriptionService::execute($articleId);
 
         return response()->json(204);
     }
 
 }
+
