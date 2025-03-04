@@ -22,8 +22,8 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [        
-            'int_cod' => $this->faker->regexify('[A-Z]{5}[0-9]{10}'),
-            'name' => strtoupper($this->faker->word())
+            //'int_cod' => $this->faker->regexify('[A-Z]{5}[0-9]{10}'),
+            //'name' => strtoupper($this->faker->word())
         ];
     }
 }
