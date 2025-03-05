@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\Models\ArticleDetail;
 
 class ArticleDetailSeeder extends Seeder
 {
@@ -16,143 +14,62 @@ class ArticleDetailSeeder extends Seeder
      */
     public function run()
     {
-        //Model::unguard();
-        
-        //for ($x = 0; $x < 10; $x++) {
-        //    ArticleDetail::factory()
-        //        ->hasArticleDetails(1)
-        //        ->create();
-        //}
-
-
-        ArticleDetail::create([
-            "article_id" => 1,
-            "presentation_id" => 1,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "N/A",
-            "packing_deployed" => "CUÑETE(S) DE 18.92 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 2,
-            "presentation_id" => 2,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "N/A",
-            "packing_deployed" => "GALÓN(ES) DE 3.78 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 3,
-            "presentation_id" => 3,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "N/A",
-            "packing_deployed" => "GALÓN(ES) DE 1.89 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 4,
-            "presentation_id" => 4,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "N/A",
-            "packing_deployed" => "GALÓN(ES) DE 0.94 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 5,
-            "presentation_id" => 5,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "MONTANA",
-            "packing_deployed" => "CUÑETE(S) DE 18.92 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 6,
-            "presentation_id" => 6,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "MONTANA",
-            "packing_deployed" => "GALÓN(ES) DE 3.78 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 7,
-            "presentation_id" => 7,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "MONTANA",
-            "packing_deployed" => "GALÓN(ES) DE 1.89 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 8,
-            "presentation_id" => 8,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "MONTANA",
-            "packing_deployed" => "GALÓN(ES) DE 0.94 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 9,
-            "presentation_id" => 9,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "MANPICA",
-            "packing_deployed" => "CUÑETE(S) DE 18.92 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
-
-        ArticleDetail::create([
-            "article_id" => 10,
-            "presentation_id" => 10,
-            "category" => "PINTURAS / EXTERIORES",
-            "product" => "BLANCO TRÁFICO",
-            "mark" => "MANPICA",
-            "packing_deployed" => "GALÓN(ES) DE 3.78 Litro(s)",
-            "quantity" => 1,
-            "created_at" => now(),
-            "updated_at" => now()
-        ]);
-
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (1, 1, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'N/A', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (2, 2, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'N/A', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (3, 3, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'N/A', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (4, 4, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'N/A', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (5, 5, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MONTANA', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (6, 6, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MONTANA', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (7, 7, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MONTANA', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (8, 8, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MONTANA', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (9, 9, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MANPICA', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (10, 10, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MANPICA', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (11, 11, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MANPICA', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (12, 12, 'PINTURAS / EXTERIORES', 'BLANCO TRÁFICO', 'MANPICA', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (13, 13, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'N/A', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (14, 14, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'N/A', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (15, 15, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'N/A', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (16, 16, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'N/A', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (17, 17, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MONTANA', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (18, 18, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MONTANA', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (19, 19, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MONTANA', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (20, 20, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MONTANA', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (21, 21, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MANPICA', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (22, 22, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MANPICA', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (23, 23, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MANPICA', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (24, 24, 'PINTURAS / INTERIORES', 'BLANCO OSTRA', 'MANPICA', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (25, 25, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'N/A', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (26, 26, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'N/A', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (27, 27, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'N/A', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (28, 28, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'N/A', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (29, 29, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MONTANA', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (30, 30, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MONTANA', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (31, 31, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MONTANA', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (32, 32, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MONTANA', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (33, 33, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MANPICA', 'CUÑETE(S) DE 18.92 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (34, 34, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MANPICA', 'GALÓN(ES) DE 3.78 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (35, 35, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MANPICA', 'GALÓN(ES) DE 1.89 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (36, 36, 'PINTURAS / OTROS', 'SELLADOR GRIS', 'MANPICA', 'GALÓN(ES) DE 0.94 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (37, 37, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'JABON DE BARRA', 'N/A', 'PAQUETE(S) DE 110 Gramo(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (38, 38, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'JABON DE BARRA', 'PROTEX', 'PAQUETE(S) DE 110 Gramo(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (39, 39, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'JABON DE BARRA', 'REXONA', 'PAQUETE(S) DE 110 Gramo(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (40, 40, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'DESODORANTE ROLLON', 'N/A', 'POTE(S) DE 90 Mililitro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (41, 41, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'DESODORANTE ROLLON', 'REXONA', 'POTE(S) DE 90 Mililitro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (42, 42, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'DESODORANTE ROLLON', 'EVERY NIGHT', 'POTE(S) DE 90 Mililitro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (43, 43, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'SHAMPOO', 'N/A', 'POTE(S) DE 200 Mililitro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (44, 44, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'SHAMPOO', 'EVERY NIGHT', 'POTE(S) DE 200 Mililitro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (45, 45, 'PRODUCTOS DE LIMPIEZA / ASEO PERSONAL', 'SHAMPOO', 'PANTENE', 'POTE(S) DE 200 Mililitro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (46, 46, 'PRODUCTOS DE LIMPIEZA / HIGIENE DEL HOGAR', 'DETERGENTE LÍQUIDO', 'N/A', 'FRASCO(S) DE 1 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (47, 47, 'PRODUCTOS DE LIMPIEZA / HIGIENE DEL HOGAR', 'DETERGENTE LÍQUIDO', 'LAVANSAN', 'FRASCO(S) DE 1 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (48, 48, 'PRODUCTOS DE LIMPIEZA / HIGIENE DEL HOGAR', 'DETERGENTE LÍQUIDO', 'LAS LLAVES', 'FRASCO(S) DE 1 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (49, 49, 'PRODUCTOS DE LIMPIEZA / HIGIENE DEL HOGAR', 'DESINFECTANTE', 'N/A', 'FRASCO(S) DE 1 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (50, 50, 'PRODUCTOS DE LIMPIEZA / HIGIENE DEL HOGAR', 'DESINFECTANTE', 'LAVANSAN', 'FRASCO(S) DE 1 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (51, 51, 'PRODUCTOS DE LIMPIEZA / HIGIENE DEL HOGAR', 'DESINFECTANTE', 'LAS LLAVES', 'FRASCO(S) DE 1 Litro(s)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (52, 52, 'HERRAMIENTAS', 'ALICATE', 'CHANNELLOCK', '1 Unidad(es)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (53, 53, 'HERRAMIENTAS', 'ALICATE', 'STANLEY', '1 Unidad(es)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (54, 54, 'HERRAMIENTAS', 'ALICATE', 'N/A', '1 Unidad(es)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (55, 55, 'HERRAMIENTAS', 'DESTORNILLADOR', 'GEDORE', '1 Unidad(es)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (56, 56, 'HERRAMIENTAS', 'DESTORNILLADOR', 'BOSCH', '1 Unidad(es)', 1, now(), now())");
+        DB::statement("INSERT INTO public.article_details(article_id, presentation_id, category, product, mark, packing_deployed, quantity, created_at, updated_at) VALUES (57, 57, 'HERRAMIENTAS', 'DESTORNILLADOR', 'N/A', '1 Unidad(es)', 1, now(), now())");
     }
 }
