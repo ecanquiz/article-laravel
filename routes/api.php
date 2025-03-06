@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ValidateSharedToken;
 use App\Http\Controllers\{
     AuthController,
     AuthMenuController,
@@ -68,10 +69,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/', [ArticleDetailController::class, 'store']);
         Route::put('/{article_detail}', [ArticleDetailController::class, 'update']);
         Route::delete('/{id}', [ArticleDetailController::class,'destroy']);
-    });    
+    });
+    
+
 });
 
-Route::get('/articles-search', [ArticleController::class,'search']);
+Route::middleware([ValidateSharedToken::class])->group(function () {
+    // Route::get('/articles-search', [ArticleController::class,'search']);
+    Route::get('/distinct-categories-by-article-detail', [ArticleDetailController::class,'getDistinctCategoriesByArticleDetail']);
+});
 
 Route::prefix('error')->group(function () {
     Route::get('/not-auth', function(){        

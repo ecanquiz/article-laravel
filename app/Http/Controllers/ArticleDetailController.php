@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Arr;
 // use Illuminate\Database\Eloquent\Collection;
 use App\Http\Services\ArticleDetail\{
     IndexArticleDetailService,
@@ -36,5 +37,16 @@ class ArticleDetailController extends Controller
     public function destroy(Request $request): JsonResponse
     {
         return DeleteArticleDetailService::execute($request);
+    }
+
+    public function getDistinctCategoriesByArticleDetail(): array
+    {
+        return Arr::pluck(            
+            \App\Models\ArticleDetail::select('category')
+            ->distinct('category')
+            ->orderBy('category')
+            ->get()
+            ->toArray()           
+            , 'category');
     }
 }
