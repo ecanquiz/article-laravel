@@ -7,6 +7,7 @@ use Illuminate\Http\{
     JsonResponse
 };
 use App\Models\Article;
+use Illuminate\Support\Facades\DB;
 
 class IndexArticleService
 {
@@ -21,13 +22,14 @@ class IndexArticleService
 
         /* search */
         $search = strtolower($request->input("search"));
+        //dd($search);
         if ($search) {
             $query->where(function ($query) use ($search) {
                 $query
-                ->where(\DB::raw('lower(int_cod)') , "like", "%$search%")
-                ->orWhere(\DB::raw('lower(name)') , "like", "%$search%")
-                ->orWhere(\DB::raw('lower(description)') , "like", "%$search%")
-                ->orWhere(\DB::raw('lower(status)') , "like", "%$search%")
+                ->where(DB::raw('lower(int_cod)') , "like", "%$search%")
+                ->orWhere(DB::raw('lower(name)') , "like", "%$search%")
+                ->orWhere(DB::raw('lower(description)') , "like", "%$search%")
+                //->orWhere(DB::raw('lower(status)') , "like", "%$search%")
                 ;
             });
         }
