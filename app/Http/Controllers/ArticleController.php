@@ -71,6 +71,8 @@ class ArticleController extends Controller
         return response()->json(Article::all());
     }
 
+
+    // TODO: Checking if it is being used or consumed this method from anywhere
     public function search(Request $request): JsonResponse
     {
         // Initialize query
@@ -115,5 +117,20 @@ class ArticleController extends Controller
             "direction" => $request->query("direction"),
             "search" => $request->query("search")
         ]);
+    }
+
+    public function getArticlesByCategories(): array
+    {
+        $query = DB::table('articles')
+        ->select('articles.id', 'int_cod', 'name', 'description')
+        ->join('article_details', 'articles.id', '=', 'article_details.article_id');
+
+        $categories = ['PINTURAS / EXTERIORES', 'PINTURAS / INTERIORES'];
+
+        if ($categories){
+            $query->whereIn('article_details.category', $categories);
+        }          
+
+        return $query->get()->toArray();
     }
 }
