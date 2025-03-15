@@ -76,7 +76,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 Route::middleware([ValidateSharedToken::class])->group(function () {
     // Route::get('/articles-search', [ArticleController::class,'search']);
-    Route::get('/distinct-categories-by-article-detail', [ArticleDetailController::class,'getDistinctCategoriesByArticleDetail']);
+    Route::get('/articles-by-categories', [ArticleController::class,'getArticlesByCategories']);
+    Route::get('/distinct-categories-by-article-detail', [ArticleDetailController::class,'getDistinctCategoriesByArticleDetail']);    
 });
 
 Route::prefix('error')->group(function () {
