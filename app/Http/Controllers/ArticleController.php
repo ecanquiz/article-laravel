@@ -119,18 +119,18 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function getArticlesByCategories(): array
+    public function getArticlesByCategories(Request $request): JsonResponse
     {
         $query = DB::table('articles')
         ->select('articles.id', 'int_cod', 'name', 'description')
         ->join('article_details', 'articles.id', '=', 'article_details.article_id');
 
-        $categories = ['PINTURAS / EXTERIORES', 'PINTURAS / INTERIORES'];
+        $categories = json_decode($request->categories);
 
         if ($categories){
             $query->whereIn('article_details.category', $categories);
-        }          
+        }
 
-        return $query->get()->toArray();
+        return response()->json($query->get()->toArray(), 200);
     }
 }
