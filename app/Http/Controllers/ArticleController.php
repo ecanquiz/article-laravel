@@ -119,7 +119,7 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function getArticlesByCategories(Request $request): JsonResponse
+    public function getArticlesSearchByCategories(Request $request): JsonResponse
     {
         $query = DB::table('articles')
         ->select('articles.id', 'int_cod', 'name', 'description')
@@ -131,6 +131,34 @@ class ArticleController extends Controller
             $query->whereIn('article_details.category', $categories);
         }
 
-        return response()->json($query->get()->toArray(), 200);
+        // search 
+        $search = strtoupper($request->input("search"));
+        if ($search) {
+            $query->where(function ($query) use ($search) {
+                //$query
+                //->where  (DB::raw("UPPER(articles.int_cod)"), "like", "%$search%")
+                //->orWhere(DB::raw("UPPER(articles.name)"), "like", "%$search%");
+            });
+        }
+
+        // sort 
+        $sort = $request->input("sort");
+        $direction = $request->input("direction") === "desc" ? "desc" : "asc";        
+        ($sort)
+            ? $query->orderBy($sort, $direction) 
+                : $query->orderBy("articles.id", "asc");
+
+        // get paginated results 
+        $articles = $query
+            ->paginate(5)
+            ->appends(request()->query());
+
+        return response()->json([
+            "rows" => $articles,
+            "sort" => $request->query("sort"),
+            "direction" => $request->query("direction"),
+            "search" => $request->query("search"),
+            "categories" => $request->query("categories")
+        ]);
     }
 }
