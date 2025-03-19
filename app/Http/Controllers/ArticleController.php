@@ -126,11 +126,15 @@ class ArticleController extends Controller
         ->join('article_details', 'articles.id', '=', 'article_details.article_id');
 
         $categories = json_decode($request->categories);
-
         if ($categories){
             $query->whereIn('article_details.category', $categories);
         }
 
+        $articleIds = json_decode($request->articleIds);
+        if ($articleIds){
+            $query->whereNotIn('article_details.article_id', $articleIds);
+        }
+        
         // search 
         $search = strtoupper($request->input("search"));
         if ($search) {
@@ -158,7 +162,8 @@ class ArticleController extends Controller
             "sort" => $request->query("sort"),
             "direction" => $request->query("direction"),
             "search" => $request->query("search"),
-            "categories" => $request->query("categories")
+            "categories" => $request->query("categories"),
+            "articleIds" => $request->query("articleIds")            
         ]);
     }
 }
