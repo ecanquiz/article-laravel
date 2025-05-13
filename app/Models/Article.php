@@ -26,8 +26,9 @@ class Article extends Model
 
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
-    protected $casts = [ /* 'field_name' => 'field_type' */ ];
-    
+    /*protected $casts = [
+        'photos' => 'array'
+    ];*/    
         
     public function articleDetails()
     {        

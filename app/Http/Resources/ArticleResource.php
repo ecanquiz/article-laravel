@@ -17,9 +17,8 @@ class ArticleResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,            
             'status' => $this->status,
-            'photo' => $this->photo,
-            //'id_user_insert' => $this->id_user_insert,
-            //'id_user_update' => $this->id_user_update            
+            //'photos' => json_decode($this->photos)
+            'photos' => $this->photos ? explode(',', trim($this->photos, '{}')) : [] 
         ];
     }
 }
