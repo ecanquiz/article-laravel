@@ -14,7 +14,7 @@ class UpdateArticleService
         // $article = Article::find($request->id);
         $article->name = $request->name;        
         $article->status = $request->status;
-        $article->photo = $request->photo;
+        $article->images = json_encode($request->images);
         $article->id_user_update = Auth::user()->id;        
 
         $article->save();

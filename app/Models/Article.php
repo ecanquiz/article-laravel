@@ -19,7 +19,7 @@ class Article extends Model
         'name',     
         'description',   
         'status',     
-        'photo',     
+        'image',     
         'id_user_insert',     
         'id_user_update'     
     ];
@@ -27,7 +27,7 @@ class Article extends Model
     protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
     /*protected $casts = [
-        'photos' => 'array'
+        'images' => 'array'
     ];*/    
         
     public function articleDetails()

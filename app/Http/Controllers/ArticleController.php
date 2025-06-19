@@ -85,7 +85,7 @@ class ArticleController extends Controller
                     articles.stock_min,
                     articles.stock_max,
                     articles.status,
-                    articles.photos,
+                    articles.images,
                     CASE WHEN view_stock_movement.total IS NULL THEN 0 ELSE view_stock_movement.total END as stock_existence")
                 ->leftjoin("view_stock_movement"  , "articles.id"  , "=", "view_stock_movement.article_id");
 
