@@ -24,7 +24,7 @@ class StoreArticleRequest extends FormRequest
             "name" => ["required"],  
             //"name" => ["description"],              
             "status" => ["required"],  
-            "photo" => ["required"],  
+            //"images" => ["required"],  
            // "id_user_insert" => ["required"],  
            // "id_user_update" => ["required"] 
             
