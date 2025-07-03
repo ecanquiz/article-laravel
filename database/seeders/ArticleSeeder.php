@@ -22,12 +22,18 @@ class ArticleSeeder extends Seeder
     ];*/
 
     private $images = [
+        'pineapple-dried.jpg',
+        'pineapple-gum.jpg',
+        'pineapple-original.jpg',
+        'pineapple-tshirt.jpg'
+    ];
+
+    /*private $images = [
         'http://localhost:9000/api/public-file/pineapple-dried.jpg',
         'http://localhost:9000/api/public-file/pineapple-gum.jpg',
         'http://localhost:9000/api/public-file/pineapple-original.jpg',
         'http://localhost:9000/api/public-file/pineapple-tshirt.jpg'
-
-    ];
+    ];*/
 
 
     public function run()
