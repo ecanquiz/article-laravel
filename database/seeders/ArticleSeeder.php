@@ -15,11 +15,20 @@ class ArticleSeeder extends Seeder
      */
 
 
-    private $images = [
+    /*private $images = [
         'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190718150152/Java-tutorials-by-GeeksForGeeks.png',
         'https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210713211702/System-Design-Tutorial.png',
         'https://media.geeksforgeeks.org/wp-content/uploads/20240304152903/python-tutorial-2.webp'
+    ];*/
+
+    private $images = [
+        'http://localhost:9000/api/public-file/pineapple-dried.jpg',
+        'http://localhost:9000/api/public-file/pineapple-gum.jpg',
+        'http://localhost:9000/api/public-file/pineapple-original.jpg',
+        'http://localhost:9000/api/public-file/pineapple-tshirt.jpg'
+
     ];
+
 
     public function run()
     {
