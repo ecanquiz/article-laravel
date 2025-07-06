@@ -2,7 +2,7 @@
 namespace App\Http\Services\Article;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\{ Http, Auth };
 use App\Http\Requests\Article\UpdateArticleRequest;
 use App\Models\Article;
 use App\Utils\ArrayTypeString;
@@ -13,6 +13,21 @@ class UpdateArticleService
     static public function execute(UpdateArticleRequest $request, Article $article): JsonResponse
     {          
         // $article = Article::find($request->id);
+
+        $response = Http::post('http://node-server/api/process-images', [
+            'images' => $request->input('images')
+        ]);
+
+        /* dd($request->bases64);
+        $response = Http::post('http://node-server/api/process-images', [
+            'images' => $request->input('images')
+        ]);
+    
+        $article = Article::create([
+            'data' => $request->except('images'),
+            'image_paths' => $response->json()['paths']
+        ]);*/
+
         $article->name = $request->name;        
         $article->status = $request->status;
         $article->images = ArrayTypeString::execute($request->images, true);
