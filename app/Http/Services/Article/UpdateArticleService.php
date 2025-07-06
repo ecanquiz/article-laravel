@@ -14,12 +14,8 @@ class UpdateArticleService
     {          
         // $article = Article::find($request->id);
 
-        $response = Http::post('http://node-server/api/process-images', [
-            'images' => $request->input('images')
-        ]);
-
-        /* dd($request->bases64);
-        $response = Http::post('http://node-server/api/process-images', [
+        // dd($request->bases64);
+        /*$response = Http::post('http://node-server/api/process-images', [
             'images' => $request->input('images')
         ]);
     
