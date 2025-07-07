@@ -14,12 +14,12 @@ class UpdateArticleService
     {          
         // $article = Article::find($request->id);
 
-        // dd($request->bases64);
-        /*$response = Http::post('http://node-server/api/process-images', [
-            'images' => $request->input('images')
+        //dd($request->bases64);
+        $response = Http::post('http://localhost:9000/api/process-images', [
+            'images' => $request->input('bases64')
         ]);
     
-        $article = Article::create([
+        /*$article = Article::create([
             'data' => $request->except('images'),
             'image_paths' => $response->json()['paths']
         ]);*/
