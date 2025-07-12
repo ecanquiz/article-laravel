@@ -15,7 +15,7 @@ class UpdateArticleService
         // $article = Article::find($request->id);
 
         //dd($request->bases64);
-        $response = Http::post('http://localhost:9000/api/process-images', [
+        $response = Http::post("http://localhost:9000/api/articles/{$article->id}/process-images", [
             'images' => $request->input('bases64')
         ]);
     
@@ -26,7 +26,8 @@ class UpdateArticleService
 
         $article->name = $request->name;        
         $article->status = $request->status;
-        $article->images = ArrayTypeString::execute($request->images, true);
+        $article->images = ArrayTypeString::execute($response->json()['paths'], true);
+        //$article->images = ArrayTypeString::execute($request->images, true);
         $article->id_user_update = Auth::user()->id;        
 
         $article->save();
