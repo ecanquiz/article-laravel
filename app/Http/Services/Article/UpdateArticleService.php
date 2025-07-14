@@ -15,7 +15,7 @@ class UpdateArticleService
         // $article = Article::find($request->id);
 
         //dd($request->bases64);
-        $response = Http::post("http://localhost:9000/api/articles/{$article->id}/process-images", [
+        $response = Http::post(config('api.url_static_assets')."/api/articles/{$article->id}/process-images", [
             'images' => $request->input('bases64')
         ]);
     
@@ -37,4 +37,3 @@ class UpdateArticleService
         ], 200);      
     }
 }
-
