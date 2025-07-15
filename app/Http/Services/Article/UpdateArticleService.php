@@ -11,7 +11,9 @@ class UpdateArticleService
 {
     static public function execute(UpdateArticleRequest $request, Article $article): JsonResponse
     {
-        $response = Http::post(config('api.url_static_assets')."/api/articles/{$article->id}/process-images", [
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . config('api.app.shared_token')
+        ])->post(config('api.url_static_assets')."/api/articles/{$article->id}/process-images", [
             'images' => $request->input('bases64')
         ]);
 
