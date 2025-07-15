@@ -19,15 +19,21 @@ class Article extends Model
         'name',     
         'description',   
         'status',     
-        'image',     
+        'image_names',     
         'id_user_insert',     
         'id_user_update'     
     ];
 
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = [
+        'user_insert_id',
+        'user_update_id',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /*protected $casts = [
-        'images' => 'array'
+        'image_names' => 'array'
     ];*/    
         
     public function articleDetails()
