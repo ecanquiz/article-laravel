@@ -28,7 +28,13 @@ class ArticleDetail extends Model
         'user_update_id',      
     ];
 
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = [
+        'user_insert_id',
+        'user_update_id',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     protected $casts = [ /* 'field_name' => 'field_type' */ ];
         

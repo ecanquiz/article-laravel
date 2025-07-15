@@ -22,7 +22,7 @@ class CreateArticlesTable extends Migration
             //$table->string('photo')->default('');
             //$table->jsonb('photo')->default(json_encode([]));
             //$table->addColumn('text[]', 'photos')->default('{}');
-            $table->text('images')->nullable(); // Create initially as text
+            $table->text('image_names')->nullable(); // Create initially as text
             $table->text('description')->default('');     
             $table->integer('id_user_insert')->default(1);
             $table->integer('id_user_update')->default(1);
@@ -31,8 +31,8 @@ class CreateArticlesTable extends Migration
         });
 
         // Later converted to text[]
-        DB::statement('ALTER TABLE articles ALTER COLUMN images TYPE text[] USING images::text[]');
-        DB::statement("ALTER TABLE articles ALTER COLUMN images SET DEFAULT '{}'");
+        DB::statement('ALTER TABLE articles ALTER COLUMN image_names TYPE text[] USING image_names::text[]');
+        DB::statement("ALTER TABLE articles ALTER COLUMN image_names SET DEFAULT '{}'");
     }
 
     /**
