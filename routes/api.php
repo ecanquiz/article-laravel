@@ -75,6 +75,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::middleware([ValidateSharedToken::class])->group(function () {
+    Route::get('/sales-catalog', [ArticleController::class, 'index']); // TODO remove this route, it is only for testing purposes
     // Route::get('/articles-search', [ArticleController::class,'search']);
     Route::get('/articles-search-by-categories', [ArticleController::class,'getArticlesSearchByCategories']);
     Route::get('/distinct-categories-by-article-detail', [ArticleDetailController::class,'getDistinctCategoriesByArticleDetail']);    
